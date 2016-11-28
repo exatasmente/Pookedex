@@ -25,6 +25,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 public class Load {
 public static ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
 public static ArrayList<Tipo> tipos = new ArrayList<>();
@@ -35,7 +38,7 @@ public static String[]  tp;
     {
         return this.pokedex;
     }
-       public void csv()
+       public boolean csv()
     {
         String arq = "src/Model/tipos_nome.csv";
         String linha = "";
@@ -223,7 +226,16 @@ public static String[]  tp;
                 }
                 l++;
             }
-
+            int i=1;
+        for(Pokemon poke : pokedex)
+         {
+             String local = "src/Model/Imagens/";
+             Icon foto = new ImageIcon(local+i+".png");
+             System.out.println(local+i+".png");
+             if(poke.getId() == i)
+                poke.setFoto(foto);
+             i++;
+         }
         }catch (IOException e) 
         {
             e.printStackTrace();
@@ -239,7 +251,7 @@ public static String[]  tp;
               
         
         
-     
+     return true;
     }
        public void setTipos(Pokemon pok)
        {
@@ -276,6 +288,8 @@ public static String[]  tp;
            {
              e.printStackTrace();
            }
+         
+         
        }
         
 }    

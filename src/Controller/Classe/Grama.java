@@ -10,6 +10,7 @@ public class Grama extends Tipo {
 	public String toString() {
 		return ""+getTipo() +"";
 	}
-
-	
+public String getTipo() {
+		return tipo;
+	}
 }

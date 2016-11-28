@@ -14,5 +14,7 @@ public class Fada extends Tipo{
     public Fada(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+	}
 }

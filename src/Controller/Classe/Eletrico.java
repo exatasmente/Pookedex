@@ -14,5 +14,8 @@ public class Eletrico extends Tipo{
     public Eletrico(String tipo) {
         super(tipo);
     }
+   public String getTipo() {
+		return tipo;
+	}
     
 }

@@ -14,5 +14,7 @@ public class Fantasma extends Tipo{
     public Fantasma(String tipo) {
         super(tipo);
     }
-    
+    public String getTipo() {
+		return tipo;
+	}
 }

@@ -14,6 +14,9 @@ public class Agua extends Tipo{
     public Agua(String tipo) {
         super(tipo);
     }
+    public String getTipo() {
+		return tipo;
+	}
       @Override
 	public String toString() {
 		return ""+getTipo() +"";

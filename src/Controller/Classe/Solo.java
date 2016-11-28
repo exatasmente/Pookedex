@@ -14,5 +14,7 @@ public class Solo extends Tipo {
     public Solo(String tipo) {
         super(tipo);
     }
-    
+    public String getTipo() {
+		return tipo;
+	}
 }

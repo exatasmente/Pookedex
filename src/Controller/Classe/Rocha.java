@@ -14,5 +14,7 @@ public class Rocha extends Tipo{
     public Rocha(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+	}
 }

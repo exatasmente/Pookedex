@@ -14,6 +14,9 @@ public class Dragao extends Tipo {
     public Dragao(String tipo) {
         super(tipo);
     }
+  public String getTipo() {
+		return tipo;
+	}
       @Override
 	public String toString() {
 		return ""+getTipo() +"";

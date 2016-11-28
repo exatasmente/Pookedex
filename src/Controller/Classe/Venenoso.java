@@ -14,5 +14,7 @@ public class Venenoso extends Tipo {
     public Venenoso(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+	}
 }

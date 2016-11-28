@@ -14,5 +14,7 @@ public class Sombrio extends Tipo{
     public Sombrio(String tipo) {
         super(tipo);
     }
-    
+ public String getTipo() {
+		return tipo;
+	}
 }

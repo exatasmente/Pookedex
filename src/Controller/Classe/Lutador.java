@@ -14,5 +14,7 @@ public class Lutador extends Tipo {
     public Lutador(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+   }
 }

@@ -14,5 +14,8 @@ public class Normal extends Tipo {
     public Normal(String tipo) {
         super(tipo);
     }
-    
+    @Override
+    public String getTipo() {
+		return tipo;
+	}
 }

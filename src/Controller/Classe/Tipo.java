@@ -1,7 +1,7 @@
 package Controller.Classe;
 
 public class Tipo {
-	private String tipo;
+	protected String tipo;
 
 		
 	public Tipo(String tipo) {

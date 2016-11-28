@@ -18,4 +18,7 @@ public class Aco extends Tipo {
 	public String toString() {
 		return ""+getTipo() +"";
 	}
+   public String getTipo() {
+		return tipo;
+	}
 }

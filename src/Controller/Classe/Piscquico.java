@@ -14,5 +14,7 @@ public class Piscquico extends  Tipo{
     public Piscquico(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+	}
 }

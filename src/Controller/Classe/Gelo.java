@@ -14,5 +14,7 @@ public class Gelo extends Tipo{
     public Gelo(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+	}
 }

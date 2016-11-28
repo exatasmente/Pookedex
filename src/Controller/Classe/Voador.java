@@ -10,5 +10,8 @@ public class Voador extends Tipo {
 	public String toString() {
 		return ""+getTipo() +"";
 	}
+public String getTipo() {
+		return tipo;
+	}
 
 }

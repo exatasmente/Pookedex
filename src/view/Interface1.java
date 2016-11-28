@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+
 import java.io.File;
 import Controller.Pokemon.Pokemon;
 import Model.Load;
@@ -12,10 +13,12 @@ import static Model.Load.pokedex;
 import static Model.Load.especies;
 import static Model.Load.te;
 import static Model.Load.tp;
+import static Model.Pesquisa.Pesquisa.re;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
-
+import Model.Pesquisa.*;
+import java.awt.Image;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -25,16 +28,16 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author Kainan
  */
 public class Interface1 extends javax.swing.JFrame {
+
     public Clip clip;
     public String ruta = "/audio/";
     public static Load model = new Load();
+    public static Pesquisa busca = new Pesquisa();
+
     /**
      * Creates new form Interface1
      */
-     
-  
-  
-    
+
     public Interface1() {
         initComponents();
         setSize(1388, 768);
@@ -42,21 +45,30 @@ public class Interface1 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         jInternalFrame1.setVisible(false);
+       
         model.csv();
+       
+       
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(te));
         jComboTipo1.setModel(new javax.swing.DefaultComboBoxModel<>(tp));
         jComboTipo2.setModel(new javax.swing.DefaultComboBoxModel<>(tp));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(te));
+        jComboTipo3.setModel(new javax.swing.DefaultComboBoxModel<>(tp));
+        jComboTipo4.setModel(new javax.swing.DefaultComboBoxModel<>(tp));
+        jComboBox1.setVisible(false);
+        jComboBox3.setVisible(false);
+                
     }
-    
-    public void play(String arquivo){
-        try{
-            clip=AudioSystem.getClip();
+
+    public void play(String arquivo) {
+        try {
+            clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + arquivo + ".wav")));
             clip.start();
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
-        
+
     }
 
     /**
@@ -69,13 +81,70 @@ public class Interface1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jFramePesquisa = new javax.swing.JFrame();
-        jButton5 = new javax.swing.JButton();
+        jInternalFrame3 = new javax.swing.JInternalFrame();
+        jTextId1 = new javax.swing.JTextField();
+        jComboTipo3 = new javax.swing.JComboBox<>();
+        jTextField3 = new javax.swing.JTextField();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboTipo4 = new javax.swing.JComboBox<>();
+        jTextAltura1 = new javax.swing.JTextField();
+        jTextPeso1 = new javax.swing.JTextField();
+        jLabelPeso2 = new javax.swing.JLabel();
+        jLabelAltura2 = new javax.swing.JLabel();
+        jLabeNome1 = new javax.swing.JLabel();
+        jLabelTipo3 = new javax.swing.JLabel();
+        jLabelCat1 = new javax.swing.JLabel();
+        jLabelHabitat1 = new javax.swing.JLabel();
+        bCadastrar1 = new javax.swing.JButton();
+        bImagem1 = new javax.swing.JButton();
+        lImagem1 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        imagen1 = new javax.swing.JLabel();
+        jLabelID1 = new javax.swing.JLabel();
+        jTextNome1 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextDesc1 = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jFramePesquisaEspecie = new javax.swing.JInternalFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelPesqNome = new javax.swing.JLabel();
+        jTextFieldPesqNome = new javax.swing.JTextField();
+        jButtonPesquisar = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jInternalFrame4 = new javax.swing.JInternalFrame();
+        jLabel18 = new javax.swing.JLabel();
+        jLabelAltura3 = new javax.swing.JLabel();
+        jLabelNome1 = new javax.swing.JLabel();
+        bMenu1 = new javax.swing.JButton();
+        jLabelTipo4 = new javax.swing.JLabel();
+        jLabelPeso3 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabelCTipo3 = new javax.swing.JLabel();
+        jLabelCPeso1 = new javax.swing.JLabel();
+        jLabelDec1 = new javax.swing.JLabel();
+        jLabelTipo5 = new javax.swing.JLabel();
+        JlabellImage1 = new javax.swing.JLabel();
+        jLabelCNome1 = new javax.swing.JLabel();
+        bBack1 = new javax.swing.JButton();
+        jLabelCId1 = new javax.swing.JLabel();
+        jLabelEspecie1 = new javax.swing.JLabel();
+        bNext1 = new javax.swing.JButton();
+        jLabelCTipo4 = new javax.swing.JLabel();
+        jLabelId1 = new javax.swing.JLabel();
+        jLabelCAltura1 = new javax.swing.JLabel();
+        jLabelCEspecie1 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextCDesc1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jListaNome = new javax.swing.JList<>();
+        jButtonClasse = new javax.swing.JButton();
+        jButtonEspecie = new javax.swing.JButton();
+        jButtonNome = new javax.swing.JButton();
+        jButtonHabitat = new javax.swing.JButton();
+        jButtonMenu = new javax.swing.JButton();
+        jLabelTitulo = new javax.swing.JLabel();
+        fundo = new javax.swing.JLabel();
         jInternalFrame2 = new javax.swing.JInternalFrame();
         jLabel17 = new javax.swing.JLabel();
         jLabelAltura1 = new javax.swing.JLabel();
@@ -131,61 +200,507 @@ public class Interface1 extends javax.swing.JFrame {
         jFramePesquisa.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFramePesquisa.getContentPane().setLayout(null);
 
-        jButton5.setBackground(new java.awt.Color(0, 153, 255));
-        jButton5.setText(" POR TIPO");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jInternalFrame3.setBorder(null);
+        jInternalFrame3.setClosable(true);
+        jInternalFrame3.setTitle("Alterar");
+        jInternalFrame3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jInternalFrame3.setVisible(false);
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jTextField3ActionPerformed(evt);
             }
         });
-        jFramePesquisa.getContentPane().add(jButton5);
-        jButton5.setBounds(860, 230, 180, 40);
 
-        jButton7.setBackground(new java.awt.Color(255, 204, 0));
-        jButton7.setText("POR GENERO");
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semente", "Gás", " " }));
+
+        jComboTipo4.setToolTipText("");
+        jComboTipo4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboTipo4ActionPerformed(evt);
+            }
+        });
+
+        jTextAltura1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextAltura1ActionPerformed(evt);
+            }
+        });
+
+        jLabelPeso2.setText("PESO");
+
+        jLabelAltura2.setText("ALTURA");
+
+        jLabeNome1.setText("NOME");
+
+        jLabelTipo3.setText("TIPO");
+
+        jLabelCat1.setText("CATEGORIAS");
+
+        jLabelHabitat1.setText("HABITAT");
+
+        bCadastrar1.setText("ATUALIZAR");
+        bCadastrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCadastrar1ActionPerformed(evt);
+            }
+        });
+
+        bImagem1.setText("IMAGEM");
+        bImagem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImagem1ActionPerformed(evt);
+            }
+        });
+
+        lImagem1.setBackground(new java.awt.Color(255, 255, 255));
+        lImagem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jButton7.setText("CANCELAR");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        jFramePesquisa.getContentPane().add(jButton7);
-        jButton7.setBounds(290, 230, 180, 40);
 
-        jButton8.setBackground(new java.awt.Color(0, 153, 0));
-        jButton8.setText(" POR NOME");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jLabelID1.setText("ID");
+
+        jTextDesc1.setColumns(20);
+        jTextDesc1.setRows(5);
+        jScrollPane4.setViewportView(jTextDesc1);
+
+        jLabel5.setText("Descrição");
+
+        javax.swing.GroupLayout jInternalFrame3Layout = new javax.swing.GroupLayout(jInternalFrame3.getContentPane());
+        jInternalFrame3.getContentPane().setLayout(jInternalFrame3Layout);
+        jInternalFrame3Layout.setHorizontalGroup(
+            jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabeNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                            .addComponent(jLabelTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(80, 80, 80)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                            .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelCat1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelID1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(20, 20, 20)
+                            .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextId1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                                    .addComponent(jComboTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(jComboTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame3Layout.createSequentialGroup()
+                            .addComponent(jTextNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(1, 1, 1))
+                        .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                            .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelHabitat1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelPeso2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(50, 50, 50)
+                            .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                                    .addComponent(jTextPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelAltura2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextAltura1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame3Layout.createSequentialGroup()
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(51, 51, 51)
+                            .addComponent(bCadastrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(69, 69, 69))))
+                .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(lImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(69, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(124, 124, 124))))
+        );
+        jInternalFrame3Layout.setVerticalGroup(
+            jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelID1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextId1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabeNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCat1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelHabitat1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextAltura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelAltura2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPeso2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton7)
+                            .addComponent(bCadastrar1)))
+                    .addGroup(jInternalFrame3Layout.createSequentialGroup()
+                        .addComponent(lImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bImagem1)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jFramePesquisa.getContentPane().add(jInternalFrame3);
+        jInternalFrame3.setBounds(100, 40, 810, 480);
+
+        jFramePesquisaEspecie.setClosable(true);
+        jFramePesquisaEspecie.setTitle("Pesquisa Por Nome");
+        jFramePesquisaEspecie.setVisible(false);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setText("Pesquisa Por Nome");
+
+        jLabelPesqNome.setText("Nome");
+
+        jButtonPesquisar.setText("Pesquisar");
+        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButtonPesquisarActionPerformed(evt);
             }
         });
-        jFramePesquisa.getContentPane().add(jButton8);
-        jButton8.setBounds(480, 230, 180, 40);
 
-        jButton9.setBackground(new java.awt.Color(255, 102, 0));
-        jButton9.setText("POR HABITAT");
-        jFramePesquisa.getContentPane().add(jButton9);
-        jButton9.setBounds(670, 230, 180, 40);
-
-        jButton10.setBackground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("MENU");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jFramePesquisa.getContentPane().add(jButton10);
-        jButton10.setBounds(580, 470, 190, 40);
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel2.setText("PESQUISA DE POKEMONS");
-        jFramePesquisa.getContentPane().add(jLabel2);
-        jLabel2.setBounds(380, 160, 580, 40);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
-        imagen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/tela4.png"))); // NOI18N
-        imagen1.setMaximumSize(new java.awt.Dimension(1366, 786));
-        imagen1.setMinimumSize(new java.awt.Dimension(1366, 786));
-        jFramePesquisa.getContentPane().add(imagen1);
-        imagen1.setBounds(0, -80, 1750, 900);
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jFramePesquisaEspecieLayout = new javax.swing.GroupLayout(jFramePesquisaEspecie.getContentPane());
+        jFramePesquisaEspecie.getContentPane().setLayout(jFramePesquisaEspecieLayout);
+        jFramePesquisaEspecieLayout.setHorizontalGroup(
+            jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFramePesquisaEspecieLayout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(jLabel4)
+                .addContainerGap(156, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFramePesquisaEspecieLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(jButtonPesquisar)
+                .addGap(60, 60, 60)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFramePesquisaEspecieLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabelPesqNome, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jComboBox1, 0, 134, Short.MAX_VALUE)
+                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextFieldPesqNome, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
+        );
+        jFramePesquisaEspecieLayout.setVerticalGroup(
+            jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFramePesquisaEspecieLayout.createSequentialGroup()
+                .addGroup(jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFramePesquisaEspecieLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jFramePesquisaEspecieLayout.createSequentialGroup()
+                        .addGroup(jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFramePesquisaEspecieLayout.createSequentialGroup()
+                                .addContainerGap(88, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58))
+                            .addGroup(jFramePesquisaEspecieLayout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addGroup(jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelPesqNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPesqNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jFramePesquisaEspecieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonPesquisar)
+                            .addComponent(jButton3))))
+                .addGap(26, 26, 26))
+        );
+
+        jFramePesquisa.getContentPane().add(jFramePesquisaEspecie);
+        jFramePesquisaEspecie.setBounds(40, 80, 530, 320);
+
+        jInternalFrame4.setBorder(null);
+        jInternalFrame4.setClosable(true);
+        jInternalFrame4.setTitle("Pokemons");
+        jInternalFrame4.setVisible(false);
+
+        jLabel18.setText("Imagem");
+
+        jLabelAltura3.setText("Altura");
+
+        jLabelNome1.setText("Nome");
+
+        bMenu1.setText("MENU");
+        bMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMenu1ActionPerformed(evt);
+            }
+        });
+
+        jLabelTipo4.setText("Tipo2");
+
+        jLabelPeso3.setText("Peso");
+
+        jButton5.setText("EDITAR");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabelDec1.setText("Descrição");
+
+        jLabelTipo5.setText("Tipo1");
+
+        JlabellImage1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JlabellImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ttait/blogsbot/com/Images/1.png")));
+
+        bBack1.setText("<");
+        bBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBack1ActionPerformed(evt);
+            }
+        });
+
+        jLabelEspecie1.setText("Especie");
+
+        bNext1.setText(">");
+        bNext1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNext1ActionPerformed(evt);
+            }
+        });
+
+        jLabelId1.setText("ID");
+
+        jTextCDesc1.setEditable(false);
+        jTextCDesc1.setColumns(20);
+        jTextCDesc1.setRows(5);
+        jScrollPane5.setViewportView(jTextCDesc1);
+
+        jListaNome.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane3.setViewportView(jListaNome);
+
+        javax.swing.GroupLayout jInternalFrame4Layout = new javax.swing.GroupLayout(jInternalFrame4.getContentPane());
+        jInternalFrame4.getContentPane().setLayout(jInternalFrame4Layout);
+        jInternalFrame4Layout.setHorizontalGroup(
+            jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(JlabellImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabelCPeso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelCEspecie1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelCNome1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                            .addComponent(jLabelCTipo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabelAltura3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCAltura1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCId1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDec1)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bBack1)
+                        .addGap(18, 18, 18)
+                        .addComponent(bNext1)
+                        .addGap(25, 25, 25)
+                        .addComponent(bMenu1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5)
+                        .addGap(47, 47, 47))))
+            .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                    .addGap(358, 358, 358)
+                    .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelPeso3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                            .addComponent(jLabelNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(156, 156, 156)
+                            .addComponent(jLabelId1))
+                        .addComponent(jLabelEspecie1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                            .addComponent(jLabelTipo5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(156, 156, 156)
+                            .addComponent(jLabelTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(99, Short.MAX_VALUE)))
+        );
+        jInternalFrame4Layout.setVerticalGroup(
+            jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(bMenu1)
+                    .addComponent(bNext1)
+                    .addComponent(bBack1))
+                .addGap(56, 56, 56)
+                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelCNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCId1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                        .addComponent(jLabelCAltura1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelCTipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCPeso1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelAltura3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelCTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelCEspecie1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabelDec1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(JlabellImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3))
+            .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jInternalFrame4Layout.createSequentialGroup()
+                    .addGap(102, 102, 102)
+                    .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelId1))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabelPeso3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(11, 11, 11)
+                    .addGroup(jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelTipo5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelTipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabelEspecie1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(168, Short.MAX_VALUE)))
+        );
+
+        jFramePesquisa.getContentPane().add(jInternalFrame4);
+        jInternalFrame4.setBounds(40, 170, 701, 437);
+
+        jButtonClasse.setBackground(new java.awt.Color(0, 153, 255));
+        jButtonClasse.setText(" POR CLASSE");
+        jButtonClasse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClasseActionPerformed(evt);
+            }
+        });
+        jFramePesquisa.getContentPane().add(jButtonClasse);
+        jButtonClasse.setBounds(860, 230, 180, 40);
+
+        jButtonEspecie.setBackground(new java.awt.Color(255, 204, 0));
+        jButtonEspecie.setText("POR ESPÉCIE");
+        jButtonEspecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEspecieActionPerformed(evt);
+            }
+        });
+        jFramePesquisa.getContentPane().add(jButtonEspecie);
+        jButtonEspecie.setBounds(290, 230, 180, 40);
+
+        jButtonNome.setBackground(new java.awt.Color(0, 153, 0));
+        jButtonNome.setText(" POR NOME");
+        jButtonNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNomeActionPerformed(evt);
+            }
+        });
+        jFramePesquisa.getContentPane().add(jButtonNome);
+        jButtonNome.setBounds(480, 230, 180, 40);
+
+        jButtonHabitat.setBackground(new java.awt.Color(255, 102, 0));
+        jButtonHabitat.setText("POR HABITAT");
+        jFramePesquisa.getContentPane().add(jButtonHabitat);
+        jButtonHabitat.setBounds(670, 230, 180, 40);
+
+        jButtonMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonMenu.setText("MENU");
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuActionPerformed(evt);
+            }
+        });
+        jFramePesquisa.getContentPane().add(jButtonMenu);
+        jButtonMenu.setBounds(580, 470, 190, 40);
+
+        jLabelTitulo.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabelTitulo.setText("PESQUISA DE POKEMONS");
+        jFramePesquisa.getContentPane().add(jLabelTitulo);
+        jLabelTitulo.setBounds(380, 160, 580, 40);
+
+        fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/tela4.png"))); // NOI18N
+        fundo.setMaximumSize(new java.awt.Dimension(1366, 786));
+        fundo.setMinimumSize(new java.awt.Dimension(1366, 786));
+        jFramePesquisa.getContentPane().add(fundo);
+        fundo.setBounds(0, -80, 1750, 900);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("POOKEDEX");
@@ -220,9 +735,9 @@ public class Interface1 extends javax.swing.JFrame {
         jLabelTipo1.setText("Tipo1");
 
         JlabellImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JlabellImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ttait/blogsbot/com/Images/1.png"))); // NOI18N
+        JlabellImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ttait/blogsbot/com/Images/1.png")));
 
-        bBack.setText("BACK");
+        bBack.setText("<");
         bBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bBackActionPerformed(evt);
@@ -231,7 +746,7 @@ public class Interface1 extends javax.swing.JFrame {
 
         jLabelEspecie.setText("Especie");
 
-        bNext.setText("NEXT");
+        bNext.setText(">");
         bNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bNextActionPerformed(evt);
@@ -482,11 +997,11 @@ public class Interface1 extends javax.swing.JFrame {
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(lImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(69, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124))))
+                        .addGap(49, 49, 49))))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,7 +1048,7 @@ public class Interface1 extends javax.swing.JFrame {
                         .addComponent(lImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bImagem)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jInternalFrame1);
@@ -584,80 +1099,201 @@ public class Interface1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int i =0;
-        if(pokedex.size()>0)
-        {
+        int i = 0;
+        if (pokedex.size() > 0) {
+            JlabellImage.setIcon(null);
             jInternalFrame2.setVisible(true);
-        }    
-        else
-            JOptionPane.showMessageDialog(rootPane,"Não existem Pokemons Cadastrados");
-       
-        
-        
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Não existem Pokemons Cadastrados");
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         jFramePesquisa.setVisible(true);
         this.setVisible(false);
-        
-               
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jInternalFrame1.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void bNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextActionPerformed
+
+        if (j < 0 || j == pokedex.size()) {
+            j = 0;
+
+        }
+        if (j >= 0 && j < pokedex.size()) {
+            System.out.println("caso2 " + j);
+            JlabellImage.setIcon(pokedex.get(j).getFoto());
+            jLabelCId.setText(String.valueOf(pokedex.get(j).getId()));
+            jLabelCNome.setText(pokedex.get(j).getNome());
+            jLabelCAltura.setText(String.valueOf(pokedex.get(j).getAltura()));
+            jLabelCPeso.setText(String.valueOf(pokedex.get(j).getPeso()));
+            jLabelCTipo1.setText(pokedex.get(j).getTipo1().getTipo());
+            jLabelCTipo2.setText(pokedex.get(j).getTipo2().getTipo());
+            jLabelCEspecie.setText(pokedex.get(j).getCategoria().getCategoria());
+            jTextCDesc.setText(pokedex.get(j).getDesc());
+            System.out.println(pokedex.get(j));
+            j++;
+        }
+    }//GEN-LAST:event_bNextActionPerformed
+
+    private void bBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBackActionPerformed
+
+        if (j >= pokedex.size() || j < 0) {
+            j = pokedex.size() - 1;
+        }
+        if (j >= 0 && j < pokedex.size()) {
+
+            JlabellImage.setIcon(pokedex.get(j).getFoto());
+            jLabelCId.setText(String.valueOf(pokedex.get(j).getId()));
+            jLabelCNome.setText(pokedex.get(j).getNome());
+            jLabelCAltura.setText(String.valueOf(pokedex.get(j).getAltura()));
+            jLabelCPeso.setText(String.valueOf(pokedex.get(j).getPeso()));
+            jLabelCTipo1.setText(pokedex.get(j).getTipo1().getTipo());
+            jLabelCTipo2.setText(pokedex.get(j).getTipo2().getTipo());
+            jLabelCEspecie.setText(pokedex.get(j).getCategoria().getCategoria());
+            jTextCDesc.setText(pokedex.get(j).getDesc());
+            System.out.println(pokedex.get(j));
+            j--;
+        }
+
+    }//GEN-LAST:event_bBackActionPerformed
+
+    private void bMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMenuActionPerformed
+        JlabellImage.setIcon(null);
+        jInternalFrame2.setVisible(false);
+    }//GEN-LAST:event_bMenuActionPerformed
+
+    private void jButtonClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClasseActionPerformed
+        jLabel4.setText("Pesquisa Por Classe");
+        jLabelPesqNome.setText("Classes");
+        jTextFieldPesqNome.setVisible(false);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(tp));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(tp));
+        jComboBox3.setVisible(true);
+        jComboBox1.setVisible(true);
+
+        jFramePesquisaEspecie.setVisible(true);
+
+
+    }//GEN-LAST:event_jButtonClasseActionPerformed
+
+    private void jButtonEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEspecieActionPerformed
+        jLabel4.setText("Pesquisa Por Especie");
+        jLabelPesqNome.setText("Especie");
+        jTextFieldPesqNome.setVisible(false);
+        jComboBox3.setVisible(false);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(te));
+        jComboBox1.setVisible(true);
+
+        jFramePesquisaEspecie.setVisible(true);
+    }//GEN-LAST:event_jButtonEspecieActionPerformed
+
+    private void jButtonNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNomeActionPerformed
+        jLabel4.setText("Pesquisa Por Nome");
+        jLabelPesqNome.setText("Nome");
+        jFramePesquisaEspecie.setVisible(true);
+        jTextFieldPesqNome.setVisible(true);
+        jComboBox3.setVisible(false);
+        jComboBox1.setVisible(false);
+        jTextFieldPesqNome.setText("");
+    }//GEN-LAST:event_jButtonNomeActionPerformed
+
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        jFramePesquisa.setVisible(false);
+        this.setVisible(true);
+
+    }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
+        jFramePesquisaEspecie.setVisible(false);
+        JlabellImage1.setIcon(null);
+        if (!jComboBox3.isVisible() && jComboBox1.isVisible()) {
+            jListaNome.setListData(busca.pesquisaEspecie(jComboBox1.getItemAt(jComboBox1.getSelectedIndex())));
+
+        }
+        if (jComboBox3.isVisible() && jComboBox1.isVisible()) {
+            jListaNome.setListData(busca.pesquisaClasse(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), jComboBox3.getItemAt(jComboBox3.getSelectedIndex())));
+        }
+        if (jTextFieldPesqNome.isVisible()) {
+            jListaNome.setListData(busca.pesquisaNome(jTextFieldPesqNome.getText()));
+        }
+        if (re.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum pokemon encontrado");
+        } else {
+            jInternalFrame4.setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonPesquisarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jFramePesquisaEspecie.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jComboTipo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTipo1ActionPerformed
-        
+    private void bMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMenu1ActionPerformed
+        JlabellImage1.setIcon(null);
+        jInternalFrame4.setVisible(false);
 
-    }//GEN-LAST:event_jComboTipo1ActionPerformed
+    }//GEN-LAST:event_bMenu1ActionPerformed
 
-    private void jTextAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAlturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextAlturaActionPerformed
+    private void bNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNext1ActionPerformed
 
-    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
-        try{
-        
+        if (j < 0 || j == re.size()) {
+            j = 0;
 
-        Pokemon poke = new Pokemon(Integer.parseInt(jTextId.getText()), jTextNome.getText(), Float.parseFloat(jTextPeso.getText()),Float.parseFloat(jTextAltura.getText()), tipos.get(jComboTipo2.getSelectedIndex()),tipos.get(jComboTipo1.getSelectedIndex()), especies.get(jComboBox2.getSelectedIndex()),lImagem.getIcon(),jTextDesc.getText());
-        System.out.println(poke);
-        
-        for (Pokemon pokemon : pokedex) 
-        {
-                if(pokemon.getId()==poke.getId())
-                {
-                    throw new Exception("Pokemon Já Cadastrado");
-            
-                }
         }
-        
-        pokedex.add(poke);
-        JOptionPane.showMessageDialog(rootPane,"Pokemon Cadastrado");
-        jTextAltura.setText("");
-        jTextId.setText("");
-        jTextNome.setText("");
-        jTextPeso.setText("");
+        if (j >= 0 && j < re.size()) {
+
+            JlabellImage1.setIcon(re.get(j).getFoto());
+            jLabelCId1.setText(String.valueOf(re.get(j).getId()));
+            jLabelCNome1.setText(re.get(j).getNome());
+            jLabelCAltura1.setText(String.valueOf(re.get(j).getAltura()));
+            jLabelCPeso1.setText(String.valueOf(re.get(j).getPeso()));
+            jLabelCTipo3.setText(re.get(j).getTipo1().getTipo());
+            jLabelCTipo4.setText(re.get(j).getTipo2().getTipo());
+            jLabelCEspecie1.setText(re.get(j).getCategoria().getCategoria());
+            jTextCDesc1.setText(re.get(j).getDesc());
+            System.out.println(re.get(j));
+            j++;
         }
-        catch(NumberFormatException e)
-        {
-            JOptionPane.showMessageDialog(rootPane,"Erro ao Cadastrar Pokemon\n Campo com Formato Inválido");
+    }//GEN-LAST:event_bNext1ActionPerformed
+
+    private void bBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBack1ActionPerformed
+        if (j >= re.size() || j < 0) {
+            j = re.size() - 1;
         }
-        catch(NullPointerException e)
-        {
-            JOptionPane.showMessageDialog(rootPane,"Erro ao Cadastrar Pokemon\n Preencha todos os Campos");
-        }catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(rootPane,"Erro ao Cadastrar Pokemon\n"+e.getMessage());
+        if (j >= 0 && j < re.size()) {
+
+            JlabellImage1.setIcon(re.get(j).getFoto());
+            jLabelCId1.setText(String.valueOf(re.get(j).getId()));
+            jLabelCNome1.setText(re.get(j).getNome());
+            jLabelCAltura1.setText(String.valueOf(re.get(j).getAltura()));
+            jLabelCPeso1.setText(String.valueOf(re.get(j).getPeso()));
+            jLabelCTipo3.setText(re.get(j).getTipo1().getTipo());
+            jLabelCTipo4.setText(re.get(j).getTipo2().getTipo());
+            jLabelCEspecie1.setText(re.get(j).getCategoria().getCategoria());
+            jTextCDesc1.setText(re.get(j).getDesc());
+            j--;
         }
 
-    }//GEN-LAST:event_bCadastrarActionPerformed
+
+    }//GEN-LAST:event_bBack1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        jInternalFrame1.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void bImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImagemActionPerformed
         JFileChooser file = new JFileChooser();
@@ -669,83 +1305,124 @@ public class Interface1 extends javax.swing.JFrame {
         file.setFileFilter(filter);
         int retorno = file.showOpenDialog(this);
 
-        if(retorno == JFileChooser.APPROVE_OPTION){
+        if (retorno == JFileChooser.APPROVE_OPTION) {
             File filecho = file.getSelectedFile();
             ImageIcon img = new ImageIcon(filecho.getPath());
-            img.setImage(img.getImage().getScaledInstance(214,231, 0));
+            img.setImage(img.getImage().getScaledInstance(214, 231, 0));
             lImagem.setIcon(img);
 
         }
-
     }//GEN-LAST:event_bImagemActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jInternalFrame1.setVisible(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
+        try {
 
-    private void bNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextActionPerformed
-            if(j<0 || j== pokedex.size()) {
-                j=0;
-                
-                
-            }
-            if(j>=0 && j<pokedex.size()){
-                System.out.println("caso2 "+j);
-                JlabellImage.setIcon(pokedex.get(j).getFoto());
-                jLabelCId.setText(String.valueOf(pokedex.get(j).getId()));
-                jLabelCNome.setText(pokedex.get(j).getNome());
-                jLabelCAltura.setText(String.valueOf(pokedex.get(j).getAltura()));
-                jLabelCPeso.setText(String.valueOf(pokedex.get(j).getPeso()));
-                jLabelCTipo1.setText(pokedex.get(j).getTipo1().getTipo());
-                jLabelCTipo2.setText(pokedex.get(j).getTipo2().getTipo());
-                jLabelCEspecie.setText(pokedex.get(j).getCategoria().getCategoria());
-                jTextCDesc.setText(pokedex.get(j).getDesc());
-                j++;
-            }
-    }//GEN-LAST:event_bNextActionPerformed
+            Pokemon poke = new Pokemon(Integer.parseInt(jTextId.getText()), jTextNome.getText(), Float.parseFloat(jTextPeso.getText()), Float.parseFloat(jTextAltura.getText()), tipos.get(jComboTipo2.getSelectedIndex()), tipos.get(jComboTipo1.getSelectedIndex()), especies.get(jComboBox2.getSelectedIndex()), lImagem.getIcon(), jTextDesc.getText());
+            System.out.println(poke);
 
-    private void bBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBackActionPerformed
-        
-            
-        if(j>=pokedex.size() ||  j<0) j=pokedex.size()-1;
-        if(j>=0 && j<pokedex.size()){
-            JlabellImage.setIcon(pokedex.get(j).getFoto());
-            jLabelCId.setText(String.valueOf(pokedex.get(j).getId()));
-            jLabelCNome.setText(pokedex.get(j).getNome());
-            jLabelCAltura.setText(String.valueOf(pokedex.get(j).getAltura()));
-            jLabelCPeso.setText(String.valueOf(pokedex.get(j).getPeso()));
-            jLabelCTipo1.setText(pokedex.get(j).getTipo1().getTipo());
-            jLabelCTipo2.setText(pokedex.get(j).getTipo2().getTipo());
-            jLabelCEspecie.setText(pokedex.get(j).getCategoria().getCategoria());
-            jTextCDesc.setText(pokedex.get(j).getDesc());
-             j--;
+            for (Pokemon pokemon : pokedex) {
+                if (pokemon.getId() == poke.getId()) {
+                    throw new Exception("Pokemon Já Cadastrado");
+
+                }
+            }
+
+            pokedex.add(poke);
+            JOptionPane.showMessageDialog(rootPane, "Pokemon Cadastrado");
+            jTextAltura.setText("");
+            jTextId.setText("");
+            jTextNome.setText("");
+            jTextPeso.setText("");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Cadastrar Pokemon\n Campo com Formato Inválido");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Cadastrar Pokemon\n Preencha todos os Campos");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Cadastrar Pokemon\n" + e.getMessage());
         }
-        
-    }//GEN-LAST:event_bBackActionPerformed
+    }//GEN-LAST:event_bCadastrarActionPerformed
 
-    private void bMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMenuActionPerformed
-        JlabellImage.setIcon(null);
-        jInternalFrame2.setVisible(false);
-    }//GEN-LAST:event_bMenuActionPerformed
+    private void jTextAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextAlturaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jComboTipo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTipo1ActionPerformed
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jComboTipo1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jComboTipo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTipo4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboTipo4ActionPerformed
+
+    private void jTextAltura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAltura1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextAltura1ActionPerformed
+
+    private void bCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrar1ActionPerformed
+        try {
+
+            Pokemon poke = new Pokemon(Integer.parseInt(jTextId1.getText()), jTextNome1.getText(), Float.parseFloat(jTextPeso1.getText()), Float.parseFloat(jTextAltura1.getText()), tipos.get(jComboTipo4.getSelectedIndex()), tipos.get(jComboTipo3.getSelectedIndex()), especies.get(jComboBox4.getSelectedIndex()), lImagem1.getIcon(), jTextDesc1.getText());
+            System.out.println(poke);
+
+            pokedex.set(j,poke);
+            JOptionPane.showMessageDialog(rootPane, "Pokemon Cadastrado");
+            jTextAltura.setText("");
+            jTextId.setText("");
+            jTextNome.setText("");
+            jTextPeso.setText("");
+            lImagem.setIcon(null);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Cadastrar Pokemon\n Campo com Formato Inválido");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Cadastrar Pokemon\n Preencha todos os Campos");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Cadastrar Pokemon\n" + e.getMessage());
+        }
+    
+
+    }//GEN-LAST:event_bCadastrar1ActionPerformed
+
+    private void bImagem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImagem1ActionPerformed
+        JFileChooser file = new JFileChooser();
+        file.setDialogTitle("ESCOLHER");
+        file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("imagem", "jpg", "png");
+
+        file.setFileFilter(filter);
+        int retorno = file.showOpenDialog(this);
+
+        if (retorno == JFileChooser.APPROVE_OPTION) {
+            File filecho = file.getSelectedFile();
+            ImageIcon img = new ImageIcon(filecho.getPath());
+            img.setImage(img.getImage().getScaledInstance(214, 231, 0));
+            lImagem1.setIcon(img);
+
+        }
+    }//GEN-LAST:event_bImagem1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-
+        jInternalFrame3.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        jFramePesquisa.setVisible(false);
-        this.setVisible(true);
-        
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       jInternalFrame3.setVisible(true);
+       jInternalFrame4.setVisible(false);
+       jTextId1.setText((String.valueOf(pokedex.get(j).getId())));
+       jTextNome1.setText(pokedex.get(j).getNome());
+       jTextAltura1.setText(String.valueOf(pokedex.get(j).getAltura()));
+       jTextPeso1.setText(String.valueOf(pokedex.get(j).getPeso()));
+       jTextDesc1.setText(pokedex.get(j).getDesc());
+       lImagem1.setIcon(pokedex.get(j).getFoto());
+    }//GEN-LAST:event_jButton5ActionPerformed
     int j= 0; 
     /**
      * @param args the command line arguments
@@ -761,16 +1438,28 @@ public class Interface1 extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interface1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interface1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interface1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interface1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface1.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Interface1.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Interface1.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Interface1.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
@@ -785,64 +1474,120 @@ public class Interface1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JlabellImage;
+    private javax.swing.JLabel JlabellImage1;
     private javax.swing.JButton bBack;
+    private javax.swing.JButton bBack1;
     private javax.swing.JButton bCadastrar;
+    private javax.swing.JButton bCadastrar1;
     private javax.swing.JButton bImagem;
+    private javax.swing.JButton bImagem1;
     private javax.swing.JButton bMenu;
+    private javax.swing.JButton bMenu1;
     private javax.swing.JButton bNext;
+    private javax.swing.JButton bNext1;
+    private javax.swing.JLabel fundo;
     private javax.swing.JLabel imagen;
-    private javax.swing.JLabel imagen1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonClasse;
+    private javax.swing.JButton jButtonEspecie;
+    private javax.swing.JButton jButtonHabitat;
+    private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonNome;
+    private javax.swing.JButton jButtonPesquisar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboTipo1;
     private javax.swing.JComboBox<String> jComboTipo2;
+    private javax.swing.JComboBox<String> jComboTipo3;
+    private javax.swing.JComboBox<String> jComboTipo4;
     private javax.swing.JFrame jFramePesquisa;
+    private javax.swing.JInternalFrame jFramePesquisaEspecie;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
+    private javax.swing.JInternalFrame jInternalFrame3;
+    private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JLabel jLabeNome;
+    private javax.swing.JLabel jLabeNome1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAltura;
     private javax.swing.JLabel jLabelAltura1;
+    private javax.swing.JLabel jLabelAltura2;
+    private javax.swing.JLabel jLabelAltura3;
     private javax.swing.JLabel jLabelCAltura;
+    private javax.swing.JLabel jLabelCAltura1;
     private javax.swing.JLabel jLabelCEspecie;
+    private javax.swing.JLabel jLabelCEspecie1;
     private javax.swing.JLabel jLabelCId;
+    private javax.swing.JLabel jLabelCId1;
     private javax.swing.JLabel jLabelCNome;
+    private javax.swing.JLabel jLabelCNome1;
     private javax.swing.JLabel jLabelCPeso;
+    private javax.swing.JLabel jLabelCPeso1;
     private javax.swing.JLabel jLabelCTipo1;
     private javax.swing.JLabel jLabelCTipo2;
+    private javax.swing.JLabel jLabelCTipo3;
+    private javax.swing.JLabel jLabelCTipo4;
     private javax.swing.JLabel jLabelCat;
+    private javax.swing.JLabel jLabelCat1;
     private javax.swing.JLabel jLabelDec;
+    private javax.swing.JLabel jLabelDec1;
     private javax.swing.JLabel jLabelEspecie;
+    private javax.swing.JLabel jLabelEspecie1;
     private javax.swing.JLabel jLabelHabitat;
+    private javax.swing.JLabel jLabelHabitat1;
     private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelID1;
     private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelId1;
     private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelNome1;
     private javax.swing.JLabel jLabelPeso;
     private javax.swing.JLabel jLabelPeso1;
+    private javax.swing.JLabel jLabelPeso2;
+    private javax.swing.JLabel jLabelPeso3;
+    private javax.swing.JLabel jLabelPesqNome;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelTipo1;
     private javax.swing.JLabel jLabelTipo2;
+    private javax.swing.JLabel jLabelTipo3;
+    private javax.swing.JLabel jLabelTipo4;
+    private javax.swing.JLabel jLabelTipo5;
+    private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JList<String> jListaNome;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextAltura;
+    private javax.swing.JTextField jTextAltura1;
     private javax.swing.JTextArea jTextCDesc;
+    private javax.swing.JTextArea jTextCDesc1;
     private javax.swing.JTextArea jTextDesc;
+    private javax.swing.JTextArea jTextDesc1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldPesqNome;
     private javax.swing.JTextField jTextId;
+    private javax.swing.JTextField jTextId1;
     private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTextNome1;
     private javax.swing.JTextField jTextPeso;
+    private javax.swing.JTextField jTextPeso1;
     private javax.swing.JLabel lImagem;
+    private javax.swing.JLabel lImagem1;
     // End of variables declaration//GEN-END:variables
 }
-

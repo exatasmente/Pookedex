@@ -14,5 +14,7 @@ public class Fogo extends Tipo {
     public Fogo(String tipo) {
         super(tipo);
     }
-    
+   public String getTipo() {
+		return tipo;
+	}
 }
