@@ -13,6 +13,7 @@ public class Sombrio extends Tipo{
     
     public Sombrio(String tipo) {
         super(tipo);
+        this.habitat = "Floresta";
     }
  public String getTipo() {
 		return tipo;

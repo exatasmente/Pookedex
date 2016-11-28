@@ -13,6 +13,7 @@ public class Eletrico extends Tipo{
     
     public Eletrico(String tipo) {
         super(tipo);
+        this.habitat = "Urbano";
     }
    public String getTipo() {
 		return tipo;

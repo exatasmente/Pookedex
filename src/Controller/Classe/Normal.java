@@ -13,6 +13,7 @@ public class Normal extends Tipo {
     
     public Normal(String tipo) {
         super(tipo);
+        this.habitat = "Floresta";
     }
     @Override
     public String getTipo() {

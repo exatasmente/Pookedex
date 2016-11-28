@@ -13,6 +13,7 @@ public class Agua extends Tipo{
     
     public Agua(String tipo) {
         super(tipo);
+        this.habitat = "Água";
     }
     public String getTipo() {
 		return tipo;

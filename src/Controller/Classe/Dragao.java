@@ -13,10 +13,12 @@ public class Dragao extends Tipo {
     
     public Dragao(String tipo) {
         super(tipo);
+        this.habitat = "Montanha";
     }
-  public String getTipo() {
-		return tipo;
-	}
+  public String getTipo() 
+  {
+    return tipo;
+  }
       @Override
 	public String toString() {
 		return ""+getTipo() +"";

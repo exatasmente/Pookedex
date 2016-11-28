@@ -13,6 +13,7 @@ public class Fantasma extends Tipo{
     
     public Fantasma(String tipo) {
         super(tipo);
+        this.habitat = "Caverna";
     }
     public String getTipo() {
 		return tipo;

@@ -13,6 +13,7 @@ public class Rocha extends Tipo{
     
     public Rocha(String tipo) {
         super(tipo);
+        this.habitat = "Caverna";
     }
    public String getTipo() {
 		return tipo;

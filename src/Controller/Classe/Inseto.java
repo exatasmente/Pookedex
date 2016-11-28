@@ -13,6 +13,7 @@ public class Inseto extends Tipo{
     
     public Inseto(String tipo) {
         super(tipo);
+        this.habitat = "Floresta";
     }
     public String getTipo() {
 		return tipo;

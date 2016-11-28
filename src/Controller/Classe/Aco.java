@@ -13,6 +13,7 @@ public class Aco extends Tipo {
     
     public Aco(String tipo) {
         super(tipo);
+        this.habitat = "Caverna";
     }
       @Override
 	public String toString() {

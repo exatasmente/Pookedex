@@ -13,6 +13,7 @@ public class Lutador extends Tipo {
     
     public Lutador(String tipo) {
         super(tipo);
+        this.habitat = "Urbano";
     }
    public String getTipo() {
 		return tipo;

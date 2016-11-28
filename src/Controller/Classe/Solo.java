@@ -13,6 +13,7 @@ public class Solo extends Tipo {
     
     public Solo(String tipo) {
         super(tipo);
+        this.habitat = "Grama";
     }
     public String getTipo() {
 		return tipo;

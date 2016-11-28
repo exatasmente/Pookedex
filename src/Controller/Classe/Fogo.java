@@ -13,6 +13,7 @@ public class Fogo extends Tipo {
     
     public Fogo(String tipo) {
         super(tipo);
+        this.habitat = "Montanha";
     }
    public String getTipo() {
 		return tipo;

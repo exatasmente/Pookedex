@@ -14,6 +14,7 @@ public  class Pokemon {
 	private Categoria categoria;
         private Icon foto;
         private String desc;
+        
 	public Pokemon(int id, String nome, float peso, float altura, Tipo tipo2, Tipo tipo1,Categoria categoria,Icon foto,String desc) {
 		this.id = id;
 		this.nome = nome;
@@ -33,6 +34,7 @@ public  class Pokemon {
 		this.categoria = categoria;
                 
 	}
+        
 	public Categoria getCategoria() {
 		return categoria;
 	}

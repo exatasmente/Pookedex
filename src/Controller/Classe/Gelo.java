@@ -13,6 +13,7 @@ public class Gelo extends Tipo{
     
     public Gelo(String tipo) {
         super(tipo);
+        this.habitat = "Raro";
     }
    public String getTipo() {
 		return tipo;

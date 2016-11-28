@@ -2,12 +2,21 @@ package Controller.Classe;
 
 public class Tipo {
 	protected String tipo;
-
+        protected String habitat = "Desconhecido";
 		
 	public Tipo(String tipo) {
 			this.tipo = tipo;
 	}
 
+        public void setHabitat(String habitat)
+        {
+            this.habitat = habitat;
+        }
+        public String getHabitat()
+        {
+            return this.habitat;
+                    
+        }
 	public String getTipo() {
 		return tipo;
 	}

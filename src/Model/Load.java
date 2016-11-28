@@ -34,6 +34,7 @@ public static ArrayList<Tipo> tipos = new ArrayList<>();
 public static ArrayList<Categoria> especies = new ArrayList<>() ;
 public static String[]  te;
 public static String[]  tp;
+public static String[]  hb;
     public ArrayList<Pokemon> getPoke()
     {
         return this.pokedex;
@@ -114,6 +115,7 @@ public static String[]  tp;
                         default:
                             tipos.add(new Tipo(pokemonS[1]));
                     }
+                    
                 }
                 l++;
             }
@@ -123,6 +125,7 @@ public static String[]  tp;
             {
                 System.out.println(tipo.getTipo());
                 tp[t] = tipo.getTipo();
+                
                 t++;
                 
             
@@ -241,6 +244,36 @@ public static String[]  tp;
             e.printStackTrace();
         }
 
+        arq = "src/Model/pokemon_habitat.csv";
+         linha = "";
+         l=0;
+         
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(arq))) {
+            ArrayList<String> temp = new ArrayList<String>();
+            while ((linha = br.readLine()) != null) 
+            {
+            
+                if(l>=1)
+                {
+                    
+                    String[] pokemonS = linha.split(separador);
+                    temp.add(pokemonS[1]);
+                   
+                }
+                l++;
+            }
+            hb = new String[temp.size()];
+            for(int i = 0; i < temp.size() ; i++)
+            {
+                hb[i]= temp.get(i);
+            }
+                
+
+        }catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
 
         
         

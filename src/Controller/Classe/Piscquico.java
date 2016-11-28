@@ -13,6 +13,7 @@ public class Piscquico extends  Tipo{
     
     public Piscquico(String tipo) {
         super(tipo);
+        this.habitat = "Raro";
     }
    public String getTipo() {
 		return tipo;

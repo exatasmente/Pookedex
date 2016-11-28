@@ -55,4 +55,17 @@ public class Pesquisa {
         }
         return ret;
     }
+     public String[] pesquisaHabitat(String habitat)
+    {
+        re.clear();
+        pokedex.stream().filter((pokemon) -> (pokemon.getTipo1().getHabitat().equals(habitat))).forEachOrdered((pokemon) -> {
+            re.add(pokemon);
+        });
+        String[] ret = new String[re.size()];
+        for(int i = 0 ; i < re.size() ; i++)
+        {
+            ret[i] = re.get(i).getNome();
+        }
+        return ret;
+    }
 }
